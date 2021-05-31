@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>list</title>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row">
+        <h1>BRAND LIST</h1>
+        {% for brand in brand%}
+
+        <div class="card">
+            <div class="card-header">
+                Brand Name
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">{{brand.brand_name}}</h5>
+                <a href="{%url 'update' brand.id%}" class="btn btn-primary">Edit</a>
+                <a href="{%url 'delete' brand.id%}" class="btn btn-primary">Delete</a>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+</div>
+{%endfor%}
+
+</div>
+</div>
+
+</body>
+</html>
