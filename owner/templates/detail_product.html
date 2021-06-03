@@ -31,45 +31,29 @@
     </ul>
 </div>
 <div class="container">
-    <div class=" col-sm-2 col-md-12">
-<table class="table table-bordered table table-striped table-hover">
-    <br>
-    <tr>
-        <th colspan="8">
-            <h3><strong>
-                <center>PRODUCTS LIST</center>
-            </strong></h3>
-        </th>
-    </tr>
-    <tr class="table-info">
-        <th>Mobile Name</th>
-        <th>Brand</th>
-        <th>Price</th>
-        <th>Specifications</th>
-        <th>Image</th>
-        <th colspan="3">Action</th>
-    </tr>
-    {%for mobile in mobiles%}
-    <tr>
-        <td>{{mobile.mobile_name}}</td>
-        <td>{{mobile.brand}}</td>
-        <td>{{mobile.price}}</td>
-        <td>{{mobile.specs}}</td>
-        <td><img src="{{mobile.image.url}}" alt="" height="120px"></td>
-        <td>
-            <a href="{%url 'viewproduct' mobile.id%}"  class="btn btn-primary">View</a>
-        </td>
-        <td>
-            <a href="{%url 'change' mobile.id%}"class="btn btn-warning">Edit</a>
-        </td>
-        <td>
-            <a href="{%url 'remove' mobile.id%}" class="btn btn-danger">Delete</a>
+    <div class="row">
 
-        </td>
-    </tr>
-    {%endfor%}
-</table>
+        <div class="col-4"></div>
+        <div class="col-4"><br>
+            <div class="card" style="width: 18rem;">
+                <img src="{{product.image.url}}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title text-primary"><strong>
+                        <center>{{product.mobile_name}}</center>
+                    </strong></h5>
+                    <p class="card-text"><strong>Specifications:</strong>{{product.specs}}</p></div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><strong>Brand:</strong>{{product.brand}}</li>
+                    <li class="list-group-item"><strong>Price:</strong>{{product.price}}</li>
+                </ul>
+
+                 <a href="{%url 'items'%}" class="btn btn-primary">Go Back</a>
+            </div>
         </div>
     </div>
+    <div class="col-4"></div>
+</div>
+</div>
+
 </body>
 </html>

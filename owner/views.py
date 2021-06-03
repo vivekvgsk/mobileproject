@@ -51,7 +51,7 @@ def product_create(request):
         form=ProductCreateForm(request.POST,files=request.FILES)
         if form.is_valid():
             form.save()
-            return render(request, 'mobilelist.html',context)
+            return redirect('items')
 
     return render(request,'productcreate.html',context)
 def list_products(request):
@@ -59,3 +59,34 @@ def list_products(request):
     context={}
     context["mobiles"]=mobiles
     return render(request,"mobilelist.html",context)
+
+def get_object(id):
+    return Product.objects.get(id=id)
+
+def edit_item(request,*args,**kwargs):
+    id=kwargs.get("id")
+    product=get_object(id)
+    form=ProductCreateForm(instance=product)
+    context={}
+    context["form"]=form
+    if request.method=="POST":
+        form=ProductCreateForm(instance=product,data=request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect("items")
+    return render(request,"editproduct.html",context)
+
+def detail_product(request,*args,**kwargs):
+    id=kwargs.get("id")
+    product=get_object(id)
+    context={}
+    context["product"]=product
+    return render(request,"detail_product.html",context)
+
+def remove_item(request,*args,**kwargs):
+    id=kwargs.get("id")
+    product=get_object(id)
+    product.delete()
+    return redirect('items')
+
+
