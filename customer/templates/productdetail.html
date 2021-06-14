@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+{%extends 'home.html'%}
+{%block body_block%}
+<div class="container">
+    <div class="row">
+
+
+        <div class="card mb-3" style="max-width:1000px;margin-top:10px">
+            <div class="row g-0">
+                <div class="col-md-5">
+                    <img src="{{mobile.image.url}}" alt="..." style="height:400px;width:250px">
+                </div>
+                <div class="col-md-4">
+                    <div class="card-body">
+                        <h2 class="card-title" style="color:blue"><strong>
+                            {{mobile.brand}} {{mobile.mobile_name}}
+                        </strong></h2>
+                        <h5 class="card-text">{{mobile.specs}}</h5><br>
+                        <h6 class="card-text" style="color:#a83248"><strong>Price: ₹ {{mobile.price}}</strong></h6>
+                        <br><br>
+                        <table>
+                            <tr >
+                                <td style="width:200px">
+                                    <a href="{%url 'add_to_cart' mobile.id%}" class="btn btn-warning "
+                                       style="color:white;font-weight:bold;text-align:center">ADD TO KART</a>
+                                </td>
+                                <td style="width:200px">
+                                    <a href="{%url 'home'%}" class="btn btn-danger " style="color:white;text-align:center;font-weight:bold">ORDER
+                                        NOW</a>
+                                </td>
+                                <td></td>
+                                <td></td>
+
+                            </tr>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--<div class="card" style="width: 18rem;">-->
+        <!--<img src="{{mobile.image.url}}" class="card-img-top" alt="..." style="height:400px">-->
+        <!--<div class="card-body">-->
+        <!--<h5 class="card-title text-primary"><strong>-->
+        <!--<center>{{mobile.mobile_name}}</center>-->
+        <!--</strong></h5>-->
+        <!--<p class="card-text"><strong>Specifications:</strong>{{mobile.specs}}</p></div>-->
+        <!--<ul class="list-group list-group-flush">-->
+        <!--<li class="list-group-item"><strong>Brand:</strong>{{mobile.brand}}</li>-->
+        <!--<li class="list-group-item"><strong>Price: ₹ </strong>{{mobile.price}}</li>-->
+        <!--</ul>-->
+        <!--<div class="card-body">-->
+        <!--<a href="{%url 'add_to_cart' mobile.id%}" class="btn btn-primary">Add to Cart</a>-->
+        <!--<a href="{%url 'home'%}" class="btn btn-primary"-->
+        <!--style="margin-left:160px;position:relative;top:-38px">Go Back</a>-->
+        <!--</div>-->
+
+
+    </div>
+</div>
+
+
+</div>
+</div>
+
+{% endblock %}
+

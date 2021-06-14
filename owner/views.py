@@ -4,7 +4,7 @@ from .form import BrandCreateForm,ProductCreateForm
 
 # Create your views here.
 def home(request):
-    return render(request,"index.html")
+    return render(request,"home.html")
 
 def addbrand(request):
     if request.method=="GET":
@@ -51,8 +51,11 @@ def product_create(request):
         form=ProductCreateForm(request.POST,files=request.FILES)
         if form.is_valid():
             form.save()
-            return redirect('items')
 
+            return redirect('items')
+        else:
+            context["form"]=form
+            return render(request, 'productcreate.html', context)
     return render(request,'productcreate.html',context)
 def list_products(request):
     mobiles=Product.objects.all()

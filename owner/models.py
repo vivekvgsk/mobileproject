@@ -16,3 +16,23 @@ class Product(models.Model):
 
     def __str__(self):
        return self.mobile_name
+
+class Cart(models.Model):
+    product=models.ForeignKey(Product,on_delete=models.CASCADE)
+    user=models.CharField(max_length=120)
+    options=(("Ordernotplaced","Ordernotplaced"),("oredrplaced","oredrplaced"))
+    status=models.CharField(max_length=50,choices=options,default="Ordernotplaced")
+
+class Orders(models.Model):
+    product=models.ForeignKey(Product,on_delete=models.CASCADE)
+    user=models.CharField(max_length=120)
+    address=models.CharField(max_length=250)
+    options=(
+        ("ordered","ordered"),
+        ("packed","packed"),
+        ("shipped","shipped"),
+        ("deliverd","deliverd"),
+        ("cancelled","cancelled")
+    )
+    status=models.CharField(max_length=120,choices=options,default="ordered")
+    date=models.DateField(auto_now=True)
