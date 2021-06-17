@@ -15,7 +15,8 @@ def permissionrequired(func):
     def wrapper(request,*args,**kwargs):
         id=kwargs.get("id")
         cart=Cart.objects.get(id=id)
-        if request.user==cart.user:
+
+        if request.user.username==cart.user:
             return func(request,*args,**kwargs)
         else:
             return redirect("login")

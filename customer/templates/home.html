@@ -15,35 +15,37 @@
     <link href="{%static 'css/styles.css'%}" rel="stylesheet"/>
     <script src="https://kit.fontawesome.com/ed0e79b1f2.js" crossorigin="anonymous"></script>
 </head>
-<body>
+<body style=" background-image:url(/static/images/cyan.jpg)">
 <div class="d-flex" id="wrapper">
     <!-- Sidebar-->
     <div class="border-end bg-white" id="sidebar-wrapper">
-        <div class="sidebar-heading border-bottom bg-light" style="text-transform: capitalize;">Hi, {{request.user}}</div>
+        <div class="sidebar-heading border-bottom bg-warning" style="text-transform: capitalize;">Hi, {{request.user}}</div>
         <div class="list-group list-group-flush">
-            <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{%url 'home'%}">Mobiles</a>
-            <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{%url 'view_mycart'%}"><i class="fas fa-cart-arrow-down">MyCart</i></a>
-            <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#">MyOrders</a>
-            <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Events</a>
-            <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Profile</a>
-            <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Status</a>
+            <a class="list-group-item list-group-item-action list-group-item-info p-3" href="{%url 'home'%}">Home</a>
+            <a class="list-group-item list-group-item-action list-group-item-primary p-3" href="{%url 'view_mycart'%}">MyCart<i class="fas fa-cart-arrow-down">
+            {%if cnt%}
+            ( {{cnt}} ){%endif%}</i></a>
+            <a class="list-group-item list-group-item-action list-group-item-danger p-3" href="{%url 'myorders'%}">MyOrders</a>
+            <a class="list-group-item list-group-item-action list-group-item-success p-3" href="#!">Events</a>
+            <a class="list-group-item list-group-item-action list-group-item-warning p-3" href="#!">Profile</a>
+            <a class="list-group-item list-group-item-action list-group-item-dark p-3" href="#!">Status</a>
         </div>
     </div>
     <!-- Page content wrapper-->
     <div id="page-content-wrapper">
         <!-- Top navigation-->
-        <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+        <nav class="navbar navbar-expand-lg navbar-light bg-primary border-bottom">
             <div class="container-fluid">
-                <button class="btn btn-primary" id="sidebarToggle">Toggle Menu</button>
+                <button class="btn btn-info" id="sidebarToggle"><i class="fas fa-toggle-on"></i></button>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                         data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span>
                 </button>
+
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
-                        <li class="nav-item active"><a class="nav-link" href="#!">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#!">Link</a></li>
-                        <li class="nav-item"><a class="nav-link btn btn-outline-danger" href="{%url 'logout' %}" >Logout</a></li>
+
+                        <li class="nav-item"><a class="nav-link btn btn-danger" href="{%url 'logout' %}" style="color:white;font-weight:bold">Logout</a></li>
 
                     </ul>
                 </div>
