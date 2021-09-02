@@ -1,10 +1,10 @@
 from django.shortcuts import render,redirect
-from .models import Brand,Product
+from .models import Brand,Product,Orders
 from .form import BrandCreateForm,ProductCreateForm
 
 # Create your views here.
 def home(request):
-    return render(request,"home.html")
+    return render(request,"index.html")
 
 def addbrand(request):
     if request.method=="GET":
@@ -91,5 +91,11 @@ def remove_item(request,*args,**kwargs):
     product=get_object(id)
     product.delete()
     return redirect('items')
+def view_customer_orders(request,*args,**kwargs):
+    orders=Orders.objects.all()
+    context={
+        "orders":orders
+    }
+    return render(request,"customerorders.html",context)
 
 

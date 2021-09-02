@@ -16,5 +16,6 @@ urlpatterns = [
     path("remove/<int:id>",remove_item,name="remove"),
     path ("order/<int:id>/<int:cid>",place_order,name="order"),
     path("vieworders",view_my_orders,name="myorders"),
-    path("cancelorder/<int:id>",cancel_order,name="cancelorder")
+    path("cancelorder/<int:id>",cancel_order,name="cancelorder"),
+
     ]

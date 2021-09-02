@@ -1,8 +1,8 @@
 from django.urls import path
-from .views import home,addbrand,listbrands,delete,updatebrand,product_create,list_products,edit_item,detail_product,remove_item
+from .views import home,addbrand,listbrands,delete,updatebrand,product_create,list_products,edit_item,detail_product,remove_item,view_customer_orders
 
 urlpatterns = [
-    path('ownerhome',home,name="home"),
+    path('ownerhome',home,name="ownerhome"),
     path('brand',addbrand,name="add"),
     path('listbrands',listbrands,name="list"),
     path('delete<int:id>',delete,name="delete"),
@@ -11,5 +11,6 @@ urlpatterns = [
     path('items',list_products,name="items"),
     path('change/<int:id>',edit_item,name="change"),
     path('viewproduct/<int:id>',detail_product,name="viewproduct"),
-    path('remove/<int:id>',remove_item,name="remove")
+    path('remove/<int:id>',remove_item,name="remove"),
+    path('vieworders',view_customer_orders,name="vieworders")
 ]
